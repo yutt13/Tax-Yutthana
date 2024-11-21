@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const FormData = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
 
-  const handlaChange = (event) => {
+  const handleChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
@@ -18,81 +18,97 @@ const FormData = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Fill in Information
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-green-300 to-teal-500">
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
+        <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">
+        📝 แบบฟอร์มภาษีเงินได้
         </h1>
-        <form onSubmit={submitForm} className="space-y-4">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              onChange={handlaChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              E-mail
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              onChange={handlaChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="job"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Job
-            </label>
-            <input
-              type="text"
-              name="job"
-              id="job"
-              onChange={handlaChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your job"
-            />
-          </div>
+        <form onSubmit={submitForm} className="space-y-6">
           <div>
             <label
               htmlFor="salary"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Salary
+              เงินเดือน (บาท)
             </label>
             <input
-              type="text"
+              type="number"
               name="salary"
               id="salary"
-              onChange={handlaChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your salary"
+              placeholder="เงินเดือนของคุณเดือนละ"
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="bonus"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              โบนัส (บาท)
+            </label>
+            <input
+              type="number"
+              name="bonus"
+              id="bonus"
+              placeholder="ระบุโบนัสที่คุณได้รับในปี"
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="social"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              หักประกันสังคมต่อเดือน (บาท)
+            </label>
+            <input
+              type="number"
+              name="social"
+              id="social"
+              placeholder="ระบุรายจ่ายประกันสังคม"
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="baby"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              จำนวนบุตร (คน)
+            </label>
+            <input
+              type="number"
+              name="baby"
+              id="baby"
+              placeholder="ระบุจำนวนบุตร"
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="protect"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              ค่าเบี้ยประกันชีวิต (บาท)
+            </label>
+            <input
+              type="number"
+              name="protect"
+              id="protect"
+              placeholder="ระบุค่าเบี้ยประกันชีวิต"
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full py-3 bg-green-500 text-white font-medium rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200"
           >
-            Submit
+            ถัดไป
           </button>
         </form>
       </div>
